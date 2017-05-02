@@ -42,11 +42,10 @@ def parse_tiles(tiles)
     ':' => 0x0D,
     ';' => 0x0C,
     '<' => 0x0B,
-    '-' => 0x0A
+    '=' => 0x0A
   }
 
   rows = tiles.chars.map do |b|
-    # todo warn on unrecognized tile
     if tilemap[b].nil?
       warn("unrecognized tile #{b}")
       next 0x00
@@ -71,8 +70,8 @@ end
 def mode(val)
   val = val.to_i
   if val < 0 || val > 3
-    warn("invalid drone path #{val} defaulted to 0")
-    return 0
+    warn("invalid drone path #{val} defaulted to 3")
+    return 3
   end
 
   val
@@ -322,7 +321,7 @@ convert = TkButton.new(root) do
 
     parse(i).each { |l| write_level(l, o) }
 
-    warnings.insert 'end', $warnings.map { |name, ws| ws.map { |w| "[warn] #{name}: #{w}" }.join("\n") }.join("\n")
+    warnings.insert 'end', $warnings.map { |name, ws| ws.map { |w| "[warn] #{name}: #{w}" } }.flatten.join("\n")
   }
 
   pack { padx 15; pady 15; side 'left' }
