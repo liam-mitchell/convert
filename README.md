@@ -2,6 +2,10 @@
 
 ***convert++*** is a little tool to convert N1.4 userlevel data into the binary format used by N++, so your old 1.4 maps can see the light of day once again in the N++ user levels section.
 
+## Usage
+
+To use the tool, just download and run 'convert++.exe' from this page. Select a file in 1.4 userlevels.txt format as the input, and select an output directory (if you'd like to drop them straight into your N++ level editor menu, use 'My Documents\Metanet\N++\levels\').
+
 There are a few caveats to this conversion, since the new format doesn't quite support all the options the old one did. When any of these are encountered, a warning will be displayed along with the level name so you can manually inspect it and determine whether/how to resolve the problem.
 
 - Some drone pathing behaviours ('alternating' and 'quasi-random') from 1.4 have been removed from N++. Also removed is the ability to 'NaN' a drone path, preventing any motion at all. These drones are defaulted to the 'dumb CCW' direction, but should almost definitely be checked and reworked somehow.
