@@ -232,7 +232,7 @@ def write_level(level, dir)
     0x25, 0x00, 0x00, 0x00, # unknown
   ]
 
-  name = "#{level[:name]} (#{level[:author]})".gsub(/\\|\/|\?/, '-').gsub(/"/, '\'')
+  name = "#{level[:name]}".gsub(/\\|\/|\?|\:/, '-').gsub(/"/, '\'')
   if name.length > 128
     name = name[0..127]
   end
